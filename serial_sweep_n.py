@@ -1,6 +1,5 @@
 """Control n servos on n arduinos over serial.
 
-This is for a servo with angles from 20-165.
 """
 
 import glob
@@ -30,13 +29,9 @@ if __name__ == "__main__":
 
 	ports = []
 	for arduino in arduinos:
-		try:
-			# connect to serial port
-			ports.append(serial.Serial(arduino, 9600))
-		except:
-			print "Failed to connect to Arduino"
-			sys.exit(1)
-
+		# connect to serial port
+		ports.append(serial.Serial(arduino, 9600))
+		
 	# need a short delay right after serial port is started for the Arduino to initialize
 	sleep(2)
 
@@ -52,7 +47,6 @@ if __name__ == "__main__":
 				pos = servo_iter()
 				#pos = servo_iter2()
 				x = pos.next()
-			print x
 			
 			# pad the servo value with zeros
 			x = str(x).zfill(3)
