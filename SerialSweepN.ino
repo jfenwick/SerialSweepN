@@ -13,7 +13,7 @@ char serialData[numServos * 3];
 char tempData[3];
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Ready");
   for (int i=0; i < numServos; i++) {
     servos[i].attach(servoPins[i]);
