@@ -59,4 +59,5 @@ if __name__ == "__main__":
 			sleep(1.1)
 	# close the serial port on exit, or you will have to unplug the Arduino to connect again
 	finally:
-		ser.close()
+		for port in ports:
+			port.close()
